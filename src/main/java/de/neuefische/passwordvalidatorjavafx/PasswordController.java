@@ -10,16 +10,14 @@ public class PasswordController {
 	@FXML
 	private TextField passwordTextField;
 
-	private final PasswordValidation passwordValidation = new PasswordValidation();
-
 	@FXML
 	protected void onGeneratePasswordButtonClick() {
-		passwordTextField.setText(passwordValidation.generateRandomValidPassword());
+		passwordTextField.setText(PasswordValidation.generateRandomValidPassword());
 	}
 
 	@FXML
 	protected void onCheckPasswordButtonClick() {
 		String password = passwordTextField.getText();
-		passwordLabel.setText(passwordValidation.isValidPassword(password) ? "Password is valid" : "Password is invalid");
+		passwordLabel.setText(PasswordValidation.isValidPassword(password) ? "Password is valid" : "Password is invalid");
 	}
 }

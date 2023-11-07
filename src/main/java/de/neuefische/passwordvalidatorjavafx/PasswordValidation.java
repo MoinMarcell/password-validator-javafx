@@ -4,6 +4,9 @@ import java.security.SecureRandom;
 
 public class PasswordValidation {
 
+	private PasswordValidation() {
+	}
+
 	private static final String[] BAD_PASSWORDS = {
 			"password",
 			"123456",
@@ -20,19 +23,19 @@ public class PasswordValidation {
 			"1234567"
 	};
 
-	public boolean hasMoreThanSixCharacters(String password) {
+	public static boolean hasMoreThanSixCharacters(String password) {
 		return password.length() > 6;
 	}
 
-	public boolean hasNumber(String password) {
+	public static boolean hasNumber(String password) {
 		return password.matches(".*\\d.*");
 	}
 
-	public boolean hasLowerAndUpperCase(String password) {
+	public static boolean hasLowerAndUpperCase(String password) {
 		return password.matches(".*[a-z].*") && password.matches(".*[A-Z].*");
 	}
 
-	public boolean isBadPassword(String password) {
+	public static boolean isBadPassword(String password) {
 		for (String p : BAD_PASSWORDS) {
 			if (p.equals(password)) {
 				return true;
@@ -41,15 +44,15 @@ public class PasswordValidation {
 		return false;
 	}
 
-	public boolean hasSpecialCharacter(String password) {
+	public static boolean hasSpecialCharacter(String password) {
 		return password.matches(".*[^a-zA-Z0-9].*");
 	}
 
-	public boolean isValidPassword(String password) {
+	public static boolean isValidPassword(String password) {
 		return hasMoreThanSixCharacters(password) && hasNumber(password) && hasLowerAndUpperCase(password) && !isBadPassword(password) && hasSpecialCharacter(password);
 	}
 
-	public String generateRandomValidPassword() {
+	public static String generateRandomValidPassword() {
 		String uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String lowercase = "abcdefghijklmnopqrstuvwxyz";
 		String numbers = "0123456789";
@@ -78,7 +81,7 @@ public class PasswordValidation {
 		return shuffledPassword;
 	}
 
-	private String shuffleString(String input) {
+	private static String shuffleString(String input) {
 		char[] characters = input.toCharArray();
 		SecureRandom random = new SecureRandom();
 
