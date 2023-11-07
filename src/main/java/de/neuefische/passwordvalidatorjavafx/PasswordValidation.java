@@ -37,7 +37,7 @@ public class PasswordValidation {
 
 	public static boolean isBadPassword(String password) {
 		for (String p : BAD_PASSWORDS) {
-			if (p.equals(password)) {
+			if (p.equalsIgnoreCase(password)) {
 				return true;
 			}
 		}
@@ -45,7 +45,7 @@ public class PasswordValidation {
 	}
 
 	public static boolean hasSpecialCharacter(String password) {
-		return password.matches(".*[^!@#$%^&*()_+].*");
+		return password.matches(".*[!@#$%^&*()_+].*");
 	}
 
 	public static boolean isValidPassword(String password) {
