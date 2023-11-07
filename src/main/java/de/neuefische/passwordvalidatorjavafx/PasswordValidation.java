@@ -45,7 +45,7 @@ public class PasswordValidation {
 	}
 
 	public static boolean hasSpecialCharacter(String password) {
-		return password.matches(".*[^a-zA-Z0-9].*");
+		return password.matches(".*[^!@#$%^&*()_+].*");
 	}
 
 	public static boolean isValidPassword(String password) {
