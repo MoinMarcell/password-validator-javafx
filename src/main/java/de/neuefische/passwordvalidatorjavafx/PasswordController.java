@@ -10,7 +10,7 @@ public class PasswordController {
 	@FXML
 	private TextField passwordTextField;
 
-	private PasswordValidation passwordValidation = new PasswordValidation();
+	private final PasswordValidation passwordValidation = new PasswordValidation();
 
 	@FXML
 	protected void onGeneratePasswordButtonClick() {
